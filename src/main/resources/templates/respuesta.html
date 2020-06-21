@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Confirmación de envío</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" th:href="@{/css/formulario.css}"/>
+</head>
+<body>
+<h1>Confirmación</h1>
+<p th:text="'Estimado ' + ${saludo.nombre} + ', su mensaje ha sido enviado con el código ' + ${saludo.messageId} + '.'"/>
+<p>En breve recibirá un correo de confirmación.</p>
+<p>
+    <a href="/saludo">Enviar otro mensaje</a>
+</p>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Envío de mensaje</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" th:href="@{/css/formulario.css}"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/validate.js}"></script>
+</head>
+<body>
+<h1>Envío de Mensajes</h1>
+<form name="form_saludo" action="#" th:action="@{/saludo}" th:object="${saludo}" method="post">
+    <p>
+        <label for="nombre">Nombre: </label>
+        <input type="text" id="nombre" name="nombre" maxlength="512" placeholder="Nombre Apellido" th:field="*{nombre}"
+               required/>
+    </p>
+    <p>
+        <label for="correo">Correo: </label>
+        <input type="email" id="correo" name="correo" placeholder="correo@servidor.com" th:field="*{email}" required/>
+    </p>
+    <p>
+        <label for="mensaje">Mensaje: </label>
+    </p>
+    <p>
+        <textarea id="mensaje" name="mensaje" maxlength="512" rows="5" placeholder="Tus comentarios"
+                  th:field="*{contenido}"
+                  required></textarea>
+    </p>
+    <p><input type="submit" value="Enviar"/> <input type="reset" value="Borrar"/></p>
+</form>
+<div id="errores" class="errores">
+    <ul id="lista_errores">
+    </ul>
+</div>
+<script type="text/javascript" th:src="@{/js/saludo.js}"></script>
+</body>
+</html>
