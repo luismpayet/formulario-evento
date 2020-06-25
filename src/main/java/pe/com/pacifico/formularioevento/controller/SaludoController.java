@@ -1,6 +1,7 @@
 package pe.com.pacifico.formularioevento.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.microsoft.azure.servicebus.primitives.ServiceBusException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
@@ -23,7 +24,7 @@ public class SaludoController {
     }
 
     @PostMapping("/saludo")
-    public String saludoSubmit(@ModelAttribute Saludo saludo) throws JsonProcessingException {
+    public String saludoSubmit(@ModelAttribute Saludo saludo) throws InterruptedException, ServiceBusException, JsonProcessingException { // throws JsonProcessingException,
         LOG.info("procesando saludo");
         saludo.enviarMensaje();
         return "respuesta";
